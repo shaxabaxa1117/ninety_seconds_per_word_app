@@ -110,7 +110,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   height: 10,
                 ),
                 Image.asset(
-                  'assets/images/set.png',
+                  'assets/images/90.png',
                   width: 100,
                   height: 100,
                 ),

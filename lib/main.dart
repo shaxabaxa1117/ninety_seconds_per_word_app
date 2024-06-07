@@ -1,6 +1,13 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:ninenty_second_per_word_app/backend/database/firebase_streem.dart';
 import 'package:ninenty_second_per_word_app/backend/provider/change_provider.dart';
+import 'package:ninenty_second_per_word_app/pages/accaunt_page.dart';
+import 'package:ninenty_second_per_word_app/pages/home_page.dart';
+import 'package:ninenty_second_per_word_app/pages/login_page.dart';
+import 'package:ninenty_second_per_word_app/pages/reset_password_page.dart';
+import 'package:ninenty_second_per_word_app/pages/sign_up_page.dart';
+import 'package:ninenty_second_per_word_app/pages/verify_mail_page.dart';
 import 'package:provider/provider.dart';
 
 Future<void> main() async {
@@ -24,15 +31,13 @@ class MyApp extends StatelessWidget {
             }),
           ),
           routes: {
-            // '/': (context) => const FirebaseStream(),
-            // '/home': (context) => const HomeScreen(),
-            // '/account': (context) => const AccountScreen(),
-            // '/login': (context) => const LoginScreen(),
-            // '/signup': (context) => const SignUpScreen(),
-            // '/reset_password': (context) => const ResetPasswordScreen(),
-            // '/verify_email': (context) => const VerifyEmailScreen(),
-            // '/object_security': (context) => ObjectSecurity(),
-            // '/object_security_second_page': (context) =>
+            '/': (context) => const FirebaseStream(),
+            '/home': (context) => const HomeScreen(),
+            '/account': (context) => const AccountScreen(),
+            '/login': (context) => const LoginScreen(),
+            '/signup': (context) => const SignUpScreen(),
+            '/reset_password': (context) => const ResetPasswordScreen(),
+            '/verify_email': (context) => const VerifyEmailScreen(),
           },
           initialRoute: '/',
         ));

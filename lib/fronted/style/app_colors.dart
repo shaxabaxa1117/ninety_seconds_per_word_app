@@ -3,10 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 abstract class AppColors {
-  static const backgroundColor = Color.fromARGB(255, 255, 255, 255);
-  static const headerColor = Color.fromARGB(255, 255, 255, 255);
-  static const textColor = Colors.black;
-  static const dividerColor = Color.fromARGB(255, 131, 131, 131);
-  static const iconColor = Color.fromARGB(255, 219, 34, 35);
-  static const iconGuardColor = Color(0xFF7F2828);
+  static const backgroundColor = Color.fromARGB(255, 34, 34, 34);
+  static const headerColor = Color.fromARGB(255, 59, 59, 59);
+  static const textColor = Colors.white;
+  static const dividerColor = Color.fromARGB(86, 255, 255, 255);
+  static const iconColor = Color.fromARGB(207, 132, 130, 130);
 }
