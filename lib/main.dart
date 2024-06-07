@@ -1,3 +1,5 @@
+
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:ninenty_second_per_word_app/backend/database/firebase_streem.dart';
@@ -9,12 +11,25 @@ import 'package:ninenty_second_per_word_app/pages/reset_password_page.dart';
 import 'package:ninenty_second_per_word_app/pages/sign_up_page.dart';
 import 'package:ninenty_second_per_word_app/pages/verify_mail_page.dart';
 import 'package:provider/provider.dart';
+
 // 
 Future<void> main() async {
+  
+
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   runApp(const MyApp());
 }
+
+// void main() async {
+//   await Hive.initFlutter();
+//   await Hive.openBox('myBox');
+//   runApp(MyApp());
+// }
+
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
