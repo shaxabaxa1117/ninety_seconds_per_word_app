@@ -102,7 +102,7 @@ class _SignUpScreen extends State<SignUpScreen> {
             child: Column(
               children: [
                 Text(
-                  'Yangi Akkaunt Yarating',
+                  'Create a new account',
                   style: AppStyle.fontStyle
                       .copyWith(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
@@ -118,7 +118,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   height: 20,
                 ),
                 Text(
-                  'Qo\'riqlash Xizmati'.toUpperCase(),
+                  'SECONDS'.toUpperCase(),
                   style: AppStyle.fontStyle
                       .copyWith(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
@@ -157,7 +157,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                 Row(
                   children: [
                     Text(
-                      'Parol',
+                      'Password',
                       style: AppStyle.fontStyle
                           .copyWith(fontWeight: FontWeight.bold),
                     )
@@ -196,7 +196,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                 Row(
                   children: [
                     Text(
-                      'Parolni tasdiqlash',
+                      'Repeat password',
                       style: AppStyle.fontStyle
                           .copyWith(fontWeight: FontWeight.bold),
                     )
@@ -240,7 +240,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                   onPressed: signUp,
                   child: Center(
                       child: Text(
-                    'Ro\'yxatdan o\'tish',
+                    'Sign up',
                     style: AppStyle.fontStyle
                         .copyWith(color: AppColors.backgroundColor),
                   )),
@@ -250,12 +250,12 @@ class _SignUpScreen extends State<SignUpScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Akkauntingiz bormi?',
+                      'Do you have an account?',
                       style: AppStyle.fontStyle,
                     ),
                     TextButton(
                       onPressed: () => Navigator.of(context).pop(),
-                      child: Text('Kirish',
+                      child: Text('Sing in',
                           style: AppStyle.fontStyle
                               .copyWith(color: AppColors.iconColor)),
                     ),

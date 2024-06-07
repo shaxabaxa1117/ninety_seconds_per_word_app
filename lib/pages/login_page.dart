@@ -95,7 +95,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Text(
-                      'Xush kelibsiz !',
+                      'Welcome !',
                       style: AppStyle.fontStyle
                           .copyWith(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 10,
                     ),
                     Text(
-                      'Tizimga kirishingiz mumkin',
+                      'There you can enter to system',
                       style: AppStyle.fontStyle
                           .copyWith(color: AppColors.dividerColor),
                     ),
@@ -116,7 +116,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       height: 100,
                     ),
                     Text(
-                      'Qo\'riqlash Xizmati'.toUpperCase(),
+                      'SECONDS'.toUpperCase(),
                       style: AppStyle.fontStyle
                           .copyWith(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
@@ -142,13 +142,13 @@ class _LoginScreenState extends State<LoginScreen> {
                       controller: emailTextInputController,
                       validator: (email) =>
                           email != null && !EmailValidator.validate(email)
-                              ? 'Введите правильный Email'
+                              ? 'Enter your mail'
                               : null,
                       decoration: const InputDecoration(
                         border: OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15))),
-                        hintText: 'Emailni kiriting',
+                        hintText: 'Enter mail',
                         hintStyle: AppStyle.fontStyle,
                         label: Icon(
                           Icons.mail,
@@ -160,7 +160,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     Row(
                       children: [
                         Text(
-                          'Parol',
+                          'Password',
                           style: AppStyle.fontStyle
                               .copyWith(fontWeight: FontWeight.bold),
                         )
@@ -182,7 +182,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         border: const OutlineInputBorder(
                             borderRadius:
                                 BorderRadius.all(Radius.circular(15))),
-                        hintText: 'Parolingizni kiriting',
+                        hintText: 'Enter your password',
                         hintStyle: AppStyle.fontStyle,
                         label: Icon(
                           Icons.lock,
@@ -194,7 +194,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             isHiddenPassword
                                 ? Icons.visibility_off
                                 : Icons.visibility,
-                            color: Colors.black,
+                            color: AppColors.textColor,
                           ),
                         ),
                       ),
@@ -207,20 +207,20 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () => Navigator.of(context)
                               .pushNamed('/reset_password'),
                           child: Text(
-                            'Parolingizni unutdingizmi?',
+                            'Forgot password?',
                             style: AppStyle.fontStyle
-                                .copyWith(color: AppColors.iconColor),
+                                .copyWith(color: AppColors.textColor),
                           ),
                         ),
                       ],
                     ),
                     ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: AppColors.iconColor),
+                          backgroundColor: AppColors.textColor),
                       onPressed: login,
                       child: Center(
                           child: Text(
-                        'Kirish',
+                        'Sign in',
                         style: AppStyle.fontStyle.copyWith(
                             color: AppColors.backgroundColor,
                             fontWeight: FontWeight.bold),
@@ -232,13 +232,13 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Akkauntingiz yo\'qmi?',
+                      'Do\'nt have an accaunt?',
                       style: AppStyle.fontStyle,
                     ),
                     TextButton(
                       onPressed: () =>
                           Navigator.of(context).pushNamed('/signup'),
-                      child: Text('Ro\'yxatdan o\'ting',
+                      child: Text('Sing up',
                           style: AppStyle.fontStyle
                               .copyWith(color: AppColors.iconColor)),
                     ),

@@ -104,7 +104,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 onPressed: resetPassword,
                 child: Center(
                     child: Text(
-                  'Parolni tiklash',
+                  'Reset password',
                   style: AppStyle.fontStyle
                       .copyWith(color: AppColors.backgroundColor),
                 )),
