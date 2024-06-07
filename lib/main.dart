@@ -9,7 +9,7 @@ import 'package:ninenty_second_per_word_app/pages/reset_password_page.dart';
 import 'package:ninenty_second_per_word_app/pages/sign_up_page.dart';
 import 'package:ninenty_second_per_word_app/pages/verify_mail_page.dart';
 import 'package:provider/provider.dart';
-
+// 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
