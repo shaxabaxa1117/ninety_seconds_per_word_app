@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
 import 'package:ninenty_second_per_word_app/pages/home_page_acces_users.dart';
 import 'package:ninenty_second_per_word_app/pages/login_page.dart';
+import 'package:ninenty_second_per_word_app/test/sms_auth.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
       //     ),
       //   ],
       // ),
-      body: (user == null) ? const LoginScreen() : const HomePageAccesUsers(),
+      body: (user == null) ? const LoginScreen() : HomePageAccesUsers(),
       // bottomNavigationBar: (user == null) ? Text('data') : Text(''),
     );
   }
