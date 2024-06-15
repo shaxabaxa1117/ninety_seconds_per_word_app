@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_function_declarations_over_variables, unused_local_variable
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -28,7 +28,11 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final modelDrawer = context.watch<DrawerModel>();
-
+    Function function = (int index) {
+      if (index == 0) {
+        Navigator.pushNamed(context, '/account_page');
+      }
+    };
     return Drawer(
       backgroundColor: AppColors.backgroundColor,
       child: Column(
@@ -37,22 +41,41 @@ class DrawerWidget extends StatelessWidget {
             name: 'Shakhzod',
             surname: 'Abdurasulov',
           ),
-          
           Container(
             color: AppColors.dividerColor,
             height: 2.5,
           ),
-          Expanded(
-            child: ListView.separated(
-                itemBuilder: (context, index) => DrawerLink(
-                    linkName: modelDrawer.linkNames[index],
-                    icon: modelDrawer.icons[index]),
-                separatorBuilder: (context, index) => Divider(
-                      thickness: 2.5,
-                      color: AppColors.dividerColor,
-                    ),
-                itemCount: modelDrawer.linkNames.length),
-          )
+          // DrawerLink(
+          //   linkName: modelDrawer.linkNames[0],
+          //   icon: modelDrawer.icons[0],
+          //   func: () {
+          //     Navigator.pushNamed(context, '/account_page');
+          //   },
+          // ),
+          //           DrawerLink(
+          // linkName: modelDrawer.linkNames[1],
+          // icon: modelDrawer.icons[1],
+          // func: () {
+          //   Navigator.pushNamed(context, '/account_page');
+          // }),
+          //           DrawerLink(
+          // linkName: modelDrawer.linkNames[2],
+          // icon: modelDrawer.icons[2],
+          // func: () {
+          //   Navigator.pushNamed(context, '/account_page');
+          // }),
+          //           DrawerLink(
+          // linkName: modelDrawer.linkNames[3],
+          // icon: modelDrawer.icons[3],
+          // func: () {
+          //   Navigator.pushNamed(context, '/account_page');
+          // }),
+          //           DrawerLink(
+          // linkName: modelDrawer.linkNames[4],
+          // icon: modelDrawer.icons[4],
+          // func: () {
+          //   Navigator.pushNamed(context, '/account_page');
+          // })
         ],
       ),
     );
