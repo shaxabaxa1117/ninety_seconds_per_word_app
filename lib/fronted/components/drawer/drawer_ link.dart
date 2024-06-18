@@ -9,11 +9,10 @@ class DrawerLink extends StatelessWidget {
   const DrawerLink(
       {super.key,
       required this.linkName,
-      required this.icon,
-      required this.func});
+      required this.icon,});
   final String linkName;
   final IconData icon;
-  final Function func;
+
 
   @override
   Widget build(BuildContext context) {
@@ -33,12 +32,9 @@ class DrawerLink extends StatelessWidget {
             flex: 6,
             child: Padding(
               padding: const EdgeInsets.only(left: 8),
-              child: TextButton(
-                onPressed: func(),
-                child: Text(
-                  linkName,
-                  style: AppStyle.fontStyle.copyWith(fontSize: 14),
-                ),
+              child: Text(
+                linkName,
+                style: AppStyle.fontStyle.copyWith(fontSize: 14),
               ),
             ),
           ),

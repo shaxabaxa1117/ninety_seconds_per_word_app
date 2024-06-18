@@ -1,11 +1,14 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, prefer_function_declarations_over_variables, unused_local_variable
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ninenty_second_per_word_app/database/drawer_data/drawer_provider.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/drawer/drawer_%20link.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/drawer/status_info.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/test_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
+import 'package:ninenty_second_per_word_app/pages/reset_password_page.dart';
 import 'package:provider/provider.dart';
 
 class DrawerPage extends StatelessWidget {
@@ -28,11 +31,7 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final modelDrawer = context.watch<DrawerModel>();
-    Function function = (int index) {
-      if (index == 0) {
-        Navigator.pushNamed(context, '/account_page');
-      }
-    };
+    
     return Drawer(
       backgroundColor: AppColors.backgroundColor,
       child: Column(
@@ -45,13 +44,14 @@ class DrawerWidget extends StatelessWidget {
             color: AppColors.dividerColor,
             height: 2.5,
           ),
-          // DrawerLink(
-          //   linkName: modelDrawer.linkNames[0],
-          //   icon: modelDrawer.icons[0],
-          //   func: () {
-          //     Navigator.pushNamed(context, '/account_page');
-          //   },
-          // ),
+          GestureDetector(
+            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen(),)),
+            child: DrawerLink(
+              linkName: modelDrawer.linkNames[0],
+              icon: modelDrawer.icons[0],
+              
+            ),
+          ),
           //           DrawerLink(
           // linkName: modelDrawer.linkNames[1],
           // icon: modelDrawer.icons[1],

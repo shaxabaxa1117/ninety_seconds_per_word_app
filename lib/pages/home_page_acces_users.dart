@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/adding_ward_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/drawer_page.dart';
 
 class HomePageAccesUsers extends StatelessWidget {
@@ -6,7 +7,7 @@ class HomePageAccesUsers extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return  Scaffold(
       backgroundColor: Color.fromARGB(255, 34, 34, 34),
       appBar: AppBar(
         title: const Text(
@@ -17,6 +18,7 @@ class HomePageAccesUsers extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 59, 59, 59),
       ),
       drawer: DrawerPage(),
+      body: AddingPage(),
       
     );
   }
