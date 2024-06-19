@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ninenty_second_per_word_app/fronted/pages/adding_ward_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/adding_word_page.dart';
+
 import 'package:ninenty_second_per_word_app/fronted/pages/drawer_page.dart';
 
 class HomePageAccesUsers extends StatelessWidget {
