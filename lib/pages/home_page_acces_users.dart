@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/adding_word_page.dart';
 
 import 'package:ninenty_second_per_word_app/fronted/pages/drawer_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/flip_card_page.dart';
 
 class HomePageAccesUsers extends StatelessWidget {
   const HomePageAccesUsers({super.key});
@@ -20,7 +21,7 @@ class HomePageAccesUsers extends StatelessWidget {
         backgroundColor: Color.fromARGB(255, 59, 59, 59),
       ),
       drawer: DrawerPage(),
-      body: AddingPage(),
+      body: WordFlipCard(),
       
     );
   }

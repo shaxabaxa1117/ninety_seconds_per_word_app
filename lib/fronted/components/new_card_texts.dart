@@ -3,8 +3,8 @@
 
 import 'package:flutter/material.dart';
 
-class NewCardTextDecoration extends StatelessWidget {
-  const NewCardTextDecoration({
+class NewCardText extends StatelessWidget {
+  const NewCardText({
     super.key,
   });
 

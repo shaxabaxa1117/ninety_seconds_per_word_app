@@ -1,13 +1,15 @@
 
 
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/main_word_text_field.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/new_card_texts.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/sentence_text_field.dart';
 
 class AddingPage extends StatelessWidget {
-  const AddingPage({super.key});
+  AddingPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,18 +17,25 @@ class AddingPage extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       child: ListView(
             children: [
-              const NewCardTextDecoration(),
+              const NewCardText(),
               const SizedBox(
                 height: 40,
               ),
-              TextInputWidget(),
+              WordTextField(),
               const SizedBox(
                 height: 20,
               ),
               SentenceTextField(),
-              SizedBox(
+              const SizedBox(height: 270,),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white60,
+                  borderRadius: BorderRadius.circular(50)
+                ),
+                height: 50,
+                width: 100,
                   child:
-                      ElevatedButton(onPressed: () {}, child: const Text('Add card')))
+                      TextButton(onPressed: () {}, child: const Text('Add card'),))
             ],
       ),
     );

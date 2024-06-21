@@ -7,12 +7,12 @@
 
 import 'package:flutter/material.dart';
 
-class TextInputWidget extends StatefulWidget {
+class WordTextField extends StatefulWidget {
   @override
-  _TextInputWidgetState createState() => _TextInputWidgetState();
+  _WordTextFieldState createState() => _WordTextFieldState();
 }
 
-class _TextInputWidgetState extends State<TextInputWidget> {
+class _WordTextFieldState extends State<WordTextField> {
   final TextEditingController _controller = TextEditingController();
 
   @override
