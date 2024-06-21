@@ -21,11 +21,16 @@ class WordFlipCard extends StatelessWidget {
               width: double.infinity,
               height: double.infinity,
               color: const Color.fromARGB(255, 83, 95, 106),
-              child: Center(
-                child: Text(
-                  word,
-                  style: TextStyle(fontSize: 24, color: Colors.white),
-                ),
+              child: Column(
+                children: [
+                  Center(
+                    child: Text(
+                      word,
+                      style: TextStyle(fontSize: 24, color: Colors.white),
+                    ),
+                  ),
+                  
+                ],
               ),
             ),
             back: Container(

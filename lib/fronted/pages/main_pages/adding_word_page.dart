@@ -8,8 +8,9 @@ import 'package:ninenty_second_per_word_app/fronted/components/main_word_text_fi
 import 'package:ninenty_second_per_word_app/fronted/components/new_card_texts.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/sentence_text_field.dart';
 
-class AddingPage extends StatelessWidget {
-  AddingPage({super.key});
+class AddingWordPage extends StatelessWidget {
+  AddingWordPage({super.key,required this.func});
+  final Function func;
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class AddingPage extends StatelessWidget {
                 height: 20,
               ),
               SentenceTextField(),
-              const SizedBox(height: 270,),
+              
               Container(
                 decoration: BoxDecoration(
                   color: Colors.white60,
@@ -35,7 +36,7 @@ class AddingPage extends StatelessWidget {
                 height: 50,
                 width: 100,
                   child:
-                      TextButton(onPressed: () {}, child: const Text('Add card'),))
+                      TextButton(onPressed: func(), child: const Text('Add card',style: TextStyle(color: Color.fromARGB(181, 137, 49, 172)),),))
             ],
       ),
     );
