@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
-import 'package:ninenty_second_per_word_app/pages/home_page_acces_users.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/home_page_acces_users.dart';
 import 'package:ninenty_second_per_word_app/pages/login_page.dart';
 import 'package:ninenty_second_per_word_app/test/sms_auth.dart';
 

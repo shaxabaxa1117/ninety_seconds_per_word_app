@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 
-
-
-class SentenceTextField extends StatefulWidget {
-  @override
-  _SentenceTextField createState() => _SentenceTextField();
-}
-
-class _SentenceTextField extends State<SentenceTextField> {
-  final TextEditingController _controller = TextEditingController();
+class SentenceTextField extends StatelessWidget {
+  SentenceTextField({super.key, required this.sentenceController});
+  TextEditingController sentenceController = TextEditingController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -16,8 +11,9 @@ class _SentenceTextField extends State<SentenceTextField> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         TextField(
-          controller: _controller,
-          maxLines: null, // Allows the text field to grow as more lines are added
+          controller: sentenceController,
+          maxLines:
+              null, // Allows the text field to grow as more lines are added
           minLines: 5, // Sets a minimum height for the text field
           style: TextStyle(color: Colors.white),
           decoration: InputDecoration(
@@ -44,7 +40,6 @@ class _SentenceTextField extends State<SentenceTextField> {
           ),
         ),
         const SizedBox(height: 20),
-        
       ],
     );
   }

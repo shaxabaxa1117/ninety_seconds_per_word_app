@@ -2,8 +2,10 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:ninenty_second_per_word_app/backend/database/firebase_streem.dart';
 import 'package:ninenty_second_per_word_app/backend/provider/change_provider.dart';
+import 'package:ninenty_second_per_word_app/database/note_data.dart';
 import 'package:ninenty_second_per_word_app/pages/accaunt_page.dart';
 import 'package:ninenty_second_per_word_app/pages/home_page.dart';
 import 'package:ninenty_second_per_word_app/pages/login_page.dart';
@@ -19,15 +21,12 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-
+  await Hive.initFlutter();
+  await Hive.openBox('notes');
+  Hive.registerAdapter(NoteDataAdapter());
   runApp(const MyApp());
 }
 
-// void main() async {
-//   await Hive.initFlutter();
-//   await Hive.openBox('myBox');
-//   runApp(MyApp());
-// }
 
 
 

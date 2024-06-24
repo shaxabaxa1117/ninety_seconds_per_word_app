@@ -10,7 +10,9 @@ class WordListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-      return Placeholder();
+      
+    return Placeholder();
+    // ListView.separated(itemBuilder: itemBuilder, separatorBuilder: separatorBuilder, itemCount: itemCount,);
       //ListView.separated(
     //       padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 22),
     //       itemBuilder: (context, i) {

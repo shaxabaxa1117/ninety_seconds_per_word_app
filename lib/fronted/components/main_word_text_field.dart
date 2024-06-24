@@ -1,20 +1,12 @@
-
-
-
-
-
 // ignore_for_file: use_key_in_widget_constructors, library_private_types_in_public_api, prefer_const_constructors
 
 import 'package:flutter/material.dart';
 
-class WordTextField extends StatefulWidget {
-  @override
-  _WordTextFieldState createState() => _WordTextFieldState();
-}
-
-class _WordTextFieldState extends State<WordTextField> {
-  final TextEditingController _controller = TextEditingController();
-
+class WordTextField extends StatelessWidget {
+  
+  WordTextField({super.key,required this.wordController});
+  TextEditingController wordController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -23,15 +15,17 @@ class _WordTextFieldState extends State<WordTextField> {
         Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
-              colors: [Color.fromARGB(255, 113, 129, 175), Color.fromARGB(255, 97, 77, 101)],
+              colors: [
+                Color.fromARGB(255, 113, 129, 175),
+                Color.fromARGB(255, 97, 77, 101)
+              ],
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
             ),
             borderRadius: BorderRadius.circular(30.0),
-            
           ),
           child: TextField(
-            controller: _controller,
+            controller: wordController,
             maxLines: 1,
             decoration: InputDecoration(
               hintText: 'Enter a word or phrase',
@@ -51,13 +45,13 @@ class _WordTextFieldState extends State<WordTextField> {
                 borderRadius: BorderRadius.circular(30.0),
                 borderSide: BorderSide.none,
               ),
-              contentPadding: EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
+              contentPadding:
+                  EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
             ),
             style: TextStyle(fontSize: 18.0, color: Colors.white),
           ),
         ),
         SizedBox(height: 20),
-        
       ],
     );
   }
