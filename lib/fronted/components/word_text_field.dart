@@ -14,23 +14,17 @@ class WordTextField extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            gradient: LinearGradient(
-              colors: [
-                Color.fromARGB(255, 113, 129, 175),
-                Color.fromARGB(255, 97, 77, 101)
-              ],
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-            ),
-            borderRadius: BorderRadius.circular(30.0),
+            color: Colors.grey[850],
+            borderRadius: BorderRadius.circular(12.0),
           ),
           child: TextField(
             controller: wordController,
             maxLines: 1,
             decoration: InputDecoration(
+              
               hintText: 'Enter a word or phrase',
-              hintStyle: TextStyle(color: Colors.white70),
-              prefixIcon: Icon(Icons.text_fields, color: Colors.white70),
+              hintStyle: TextStyle(color: Colors.grey[500]),
+              prefixIcon: Icon(Icons.text_fields, color: Colors.grey[500]),
               filled: true,
               fillColor: Colors.transparent,
               border: OutlineInputBorder(
@@ -42,13 +36,16 @@ class WordTextField extends StatelessWidget {
                 borderSide: BorderSide.none,
               ),
               focusedBorder: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(30.0),
-                borderSide: BorderSide.none,
+              borderRadius: BorderRadius.circular(12.0),
+              borderSide: BorderSide(
+                color: Colors.blueAccent,
+                width: 2.0,
               ),
+            ),
               contentPadding:
                   EdgeInsets.symmetric(vertical: 15.0, horizontal: 20.0),
             ),
-            style: TextStyle(fontSize: 18.0, color: Colors.white),
+            
           ),
         ),
         SizedBox(height: 20),

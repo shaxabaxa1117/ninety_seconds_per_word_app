@@ -66,28 +66,28 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
             SalomonBottomBarItem(
               icon: Icon(Icons.home),
               title: Text("Home"),
-              selectedColor: Colors.purple,
+              selectedColor: const Color.fromARGB(112, 255, 255, 255),
             ),
       
             /// Search
             SalomonBottomBarItem(
               icon: Icon(Icons.add),
               title: Text("Add card"),
-              selectedColor: Colors.orange,
+              selectedColor: const Color.fromARGB(112, 255, 255, 255),
             ),
       
             /// Profile
             SalomonBottomBarItem(
               icon: Icon(Icons.list_alt),
               title: Text("List of words"),
-              selectedColor: Colors.teal,
+              selectedColor: const Color.fromARGB(112, 255, 255, 255),
             ),
       
             /// Likes
             SalomonBottomBarItem(
               icon: Icon(Icons.favorite_border),
               title: Text("Favourite cards"),
-              selectedColor: Colors.pink,
+              selectedColor: const Color.fromARGB(112, 255, 255, 255),
             ),
           ],
         ),

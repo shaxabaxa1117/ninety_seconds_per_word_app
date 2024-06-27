@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ninenty_second_per_word_app/database/hive_box.dart';
-import 'package:ninenty_second_per_word_app/fronted/components/main_word_text_field.dart';
+import 'package:ninenty_second_per_word_app/fronted/components/word_text_field.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/new_card_texts.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/sentence_text_field.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
