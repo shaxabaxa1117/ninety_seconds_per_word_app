@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ninenty_second_per_word_app/database/hive_box.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/main_word_text_field.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/new_card_texts.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/sentence_text_field.dart';
@@ -39,7 +40,10 @@ class AddingCardPage extends StatelessWidget {
               height: 50,
               width: 100,
               child: TextButton(
-                onPressed: () => model.addNote(),
+                onPressed: () { 
+                model.addNote();
+                },
+                
                 child: const Text(
                   'Add card',
                   style: TextStyle(color: Color.fromARGB(181, 137, 49, 172)),

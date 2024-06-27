@@ -2,57 +2,69 @@
 
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
+import 'package:ninenty_second_per_word_app/database/hive_box.dart';
 
 
 
 
 class WordFlipCard extends StatelessWidget {
 
-  String word = 'coworking';
-  String sentence = 'Coworking is essential part of my life ';
-  WordFlipCard({super.key});
+  int index;
+  WordFlipCard({super.key,required this.index});
   @override
   Widget build(BuildContext context) {
+    var allNotes = HiveBox.notes.values.toList();
     return 
-          Center(
-          child: FlipCard(
-            direction: FlipDirection.HORIZONTAL, // направление переворота (горизонтально или вертикально)
-            front: Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: const Color.fromARGB(255, 83, 95, 106),
-              child: Column(
-                children: [
-                  Center(
-                    child: Text(
-                      word,
-                      style: TextStyle(fontSize: 24, color: Colors.white),
-                    ),
-                  ),
-                  
-                ],
-              ),
-            ),
-            back: Container(
-              width: double.infinity,
-              height: double.infinity,
-              color: Color.fromARGB(255, 66, 48, 67),
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
+          Scaffold(
+            appBar: AppBar(
+          title: const Text(
+            'Car',
+            style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
+          ),
+          centerTitle: true,
+          backgroundColor: Color.fromARGB(255, 59, 59, 59),
+        ),
+            body:  Center(
+            child: FlipCard(
+              direction: FlipDirection.HORIZONTAL, // направление переворота (горизонтально или вертикально)
+              front: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: const Color.fromARGB(255, 83, 95, 106),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      sentence,
-                      style: TextStyle(fontSize: 24, color: Colors.white),
+                    Center(
+                      child: Text(
+                        allNotes[index].word!,
+                        style: TextStyle(fontSize: 24, color: Colors.white),
+                      ),
                     ),
-                    Text('Translфtion')
+                    
                   ],
                 ),
               ),
+              back: Container(
+                width: double.infinity,
+                height: double.infinity,
+                color: Color.fromARGB(255, 66, 48, 67),
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        allNotes[index].sentence!,
+                        style: TextStyle(fontSize: 24, color: Colors.white),
+                      ),
+                      
+                    ],
+                  ),
+                ),
+              ),
             ),
-          ),
-        );
+                    ),
+          );
   }
 }
 
