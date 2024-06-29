@@ -12,7 +12,7 @@ import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 class HomePageAccesUsers extends StatefulWidget {
-  static final title = 'salomon_bottom_bar';
+  
 
   @override
   _HomePageAccesUsersState createState() => _HomePageAccesUsersState();

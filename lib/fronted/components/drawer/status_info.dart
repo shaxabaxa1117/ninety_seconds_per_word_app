@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ninenty_second_per_word_app/database/hive_box.dart';
 
-import 'package:ninenty_second_per_word_app/provider/drawer_provider.dart';
+
 import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_style.dart';
 import 'package:provider/provider.dart';
@@ -47,7 +47,7 @@ class _StatusInfoState extends State<StatusInfo> {
   }
   @override
   Widget build(BuildContext context) {
-    var drawerModel = context.watch<DrawerModel>();
+    
     
     return Container(
       color: AppColors.backgroundColor,
