@@ -3,7 +3,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:ninenty_second_per_word_app/database/drawer_data/drawer_provider.dart';
+import 'package:ninenty_second_per_word_app/provider/drawer_provider.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/drawer/drawer_%20link.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/drawer/status_info.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/test_page.dart';
@@ -23,6 +23,7 @@ class DrawerPage extends StatelessWidget {
   }
 }
 
+
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({
     super.key,
@@ -31,51 +32,61 @@ class DrawerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final modelDrawer = context.watch<DrawerModel>();
-    
+
     return Drawer(
       backgroundColor: AppColors.backgroundColor,
       child: Column(
         children: [
           StatusInfo(
             name: 'Shakhzod',
-            surname: 'Abdurasulov',
+            surname: 'Bakhodirov',
           ),
           Container(
             color: AppColors.dividerColor,
             height: 2.5,
           ),
+          SizedBox(
+            height: 7,
+          ),
           GestureDetector(
-            onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context) => ResetPasswordScreen(),)),
+            onTap: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResetPasswordScreen(),
+                )),
             child: DrawerLink(
               linkName: modelDrawer.linkNames[0],
               icon: modelDrawer.icons[0],
-              
             ),
           ),
-          //           DrawerLink(
-          // linkName: modelDrawer.linkNames[1],
-          // icon: modelDrawer.icons[1],
-          // func: () {
-          //   Navigator.pushNamed(context, '/account_page');
-          // }),
-          //           DrawerLink(
-          // linkName: modelDrawer.linkNames[2],
-          // icon: modelDrawer.icons[2],
-          // func: () {
-          //   Navigator.pushNamed(context, '/account_page');
-          // }),
-          //           DrawerLink(
-          // linkName: modelDrawer.linkNames[3],
-          // icon: modelDrawer.icons[3],
-          // func: () {
-          //   Navigator.pushNamed(context, '/account_page');
-          // }),
-          //           DrawerLink(
-          // linkName: modelDrawer.linkNames[4],
-          // icon: modelDrawer.icons[4],
-          // func: () {
-          //   Navigator.pushNamed(context, '/account_page');
-          // })
+          SizedBox(
+            height: 7,
+          ),
+          DrawerLink(
+            linkName: modelDrawer.linkNames[1],
+            icon: modelDrawer.icons[1],
+          ),
+          SizedBox(
+            height: 7,
+          ),
+          DrawerLink(
+            linkName: modelDrawer.linkNames[2],
+            icon: modelDrawer.icons[2],
+          ),
+          SizedBox(
+            height: 7,
+          ),
+          DrawerLink(
+            linkName: modelDrawer.linkNames[3],
+            icon: modelDrawer.icons[3],
+          ),
+          SizedBox(
+            height: 7,
+          ),
+          DrawerLink(
+            linkName: modelDrawer.linkNames[4],
+            icon: modelDrawer.icons[4],
+          )
         ],
       ),
     );

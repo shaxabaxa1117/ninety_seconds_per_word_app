@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ninenty_second_per_word_app/database/hive_box.dart';
 import 'package:ninenty_second_per_word_app/database/note_data.dart';
-import 'package:ninenty_second_per_word_app/fronted/pages/flip_card_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/components/flip_card_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_style.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';

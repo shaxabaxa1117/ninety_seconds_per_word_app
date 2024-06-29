@@ -3,9 +3,8 @@ import 'package:ninenty_second_per_word_app/fronted/pages/AI_chat/ai_chat_screen
 
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/adding_card_page.dart';
 
-import 'package:ninenty_second_per_word_app/fronted/pages/drawer_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/drawer/drawer_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/favourite_words_page.dart';
-import 'package:ninenty_second_per_word_app/fronted/pages/flip_card_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/home_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/word_list_page.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
