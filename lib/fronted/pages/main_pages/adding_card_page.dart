@@ -16,22 +16,24 @@ class AddingCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<NotesProvider>();
+    final wordController = context.read<NotesProvider>().wordController;
+    final sentenceController = context.read<NotesProvider>().sentenceController;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       child: ListView(
         children: [
-          const NewCardText(),
+            CardText(word: 'Create a new ',),
           const SizedBox(
             height: 40,
           ),
           WordTextField(
-            wordController: model.wordController,
+            wordController: wordController,
           ),
           const SizedBox(
             height: 20,
           ),
           SentenceTextField(
-            sentenceController: model.sentenceController,
+            sentenceController: sentenceController,
           ),
           Container(
               decoration: BoxDecoration(

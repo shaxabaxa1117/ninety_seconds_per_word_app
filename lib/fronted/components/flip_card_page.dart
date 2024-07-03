@@ -16,9 +16,10 @@ class WordFlipCard extends StatelessWidget {
     var allNotes = HiveBox.notes.values.toList();
     return 
           Scaffold(
+            backgroundColor: Color.fromARGB(255, 34, 34, 34),
             appBar: AppBar(
           title: const Text(
-            'Car',
+            'Card',
             style: TextStyle(fontFamily: 'Poppins', color: Colors.white),
           ),
           centerTitle: true,

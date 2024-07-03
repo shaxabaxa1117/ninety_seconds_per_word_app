@@ -26,7 +26,7 @@ class NotesProvider extends ChangeNotifier{
 
     await HiveBox.notes.add(
       NoteData(
-        word: wordController.text.isNotEmpty ? wordController.text : 'No word mentioned',
+        word: wordController.text.isNotEmpty ? wordController.text : 'No word is mentioned',
         sentence: sentenceController.text.isNotEmpty ? sentenceController.text : 'No sentence is given',
       )
     ).then((value) => controllersClear());
@@ -61,22 +61,22 @@ class NotesProvider extends ChangeNotifier{
 
   //редактирование
 
-//     Future<void> onChange(BuildContext context, int index) async{
+    Future<void> onChange(BuildContext context, int index) async{
 
-//     await HiveBox.notes.putAt(index, NotesData(
-//       title: titleController.text,
-//       text: textController.text,
+    await HiveBox.notes.putAt(index, NoteData(
+      word : wordController.text,
+      sentence : sentenceController.text,
 
-//     )).then((value) => Navigator.pop(context));
+    )).then((value) => Navigator.pop(context));
 
 
-// }
+}
 
-//установка поле ввода значние при редактиировании 
+// установка поле ввода значние при редактиировании 
 
-  // Future<void> setControllers(int index) async{
-  // titleController.text = HiveBox.notes.getAt(index)?.title ?? '';
-  // textController.text = HiveBox.notes.getAt(index)?.text ?? '';
-  // }
+  Future<void> setControllers(int index) async{
+  wordController.text = HiveBox.notes.getAt(index)!.word ?? '';
+  sentenceController.text = HiveBox.notes.getAt(index)!.sentence ?? '';
+  }
 
 }

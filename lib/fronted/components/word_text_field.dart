@@ -18,6 +18,7 @@ class WordTextField extends StatelessWidget {
             borderRadius: BorderRadius.circular(12.0),
           ),
           child: TextField(
+            style: TextStyle(color: Colors.white),
             controller: wordController,
             maxLines: 1,
             decoration: InputDecoration(

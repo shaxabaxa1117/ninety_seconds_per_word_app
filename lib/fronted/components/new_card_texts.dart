@@ -3,18 +3,21 @@
 
 import 'package:flutter/material.dart';
 
-class NewCardText extends StatelessWidget {
-  const NewCardText({
+class CardText extends StatelessWidget {
+  
+    CardText({
     super.key,
+    required this.word
   });
-
+  String? word;
+  
   @override
   Widget build(BuildContext context) {
     return RichText(
               text: TextSpan(
     children: [
-      const TextSpan(
-        text: 'Create a new ',
+        TextSpan(
+        text:word,
         style: TextStyle(
           fontFamily: 'Poppins',
           color: Colors.white,
