@@ -14,14 +14,10 @@ class NotesProvider extends ChangeNotifier {
   Future<void> addNote(context) async {
     await HiveBox.notes
         .add(NoteData(
-          word: wordController.text.isNotEmpty
-              ? wordController.text
-              : 'No word is mentioned',
-          sentence: sentenceController.text.isNotEmpty
-              ? sentenceController.text
-              : 'No sentence is given',
-        ))
+          word: wordController.text.isNotEmpty ? wordController.text: 'No word is mentioned',
+          sentence: sentenceController.text.isNotEmpty? sentenceController.text: 'No sentence is given',))
         .then((value) => Navigator.pop(context)).then((value) => controllersClear());
+        print('работает addNote');
   }
 
   // очищение контрллера
@@ -49,17 +45,11 @@ class NotesProvider extends ChangeNotifier {
   //редактирование
 
   Future<void> onChange(BuildContext context, int index) async {
-    await HiveBox.notes
-        .putAt(
-          index,
-          NoteData(
-            word: wordController.text,
-            sentence: sentenceController.text,
-          ),
-        )
+    await HiveBox.notes.putAt(index ,NoteData(word: wordController.text,sentence: sentenceController.text))
         .then(
           (value) => Navigator.pop(context),
         );
+        print('работает  onChange');
   }
 
 // установка поле ввода значние при редактиировании
@@ -67,5 +57,6 @@ class NotesProvider extends ChangeNotifier {
   Future<void> setControllers(int index) async {
     wordController.text = HiveBox.notes.getAt(index)?.word ?? '';
     sentenceController.text = HiveBox.notes.getAt(index)?.sentence ?? '';
+    print('работает  setControllers');
   }
 }

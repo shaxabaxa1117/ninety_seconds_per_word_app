@@ -62,7 +62,7 @@ class WordListPage extends StatelessWidget {
                           IconButton(
                             onPressed: () {
                               Navigator.pushNamed(context, '/edit_page',
-                                    arguments: index);
+                              arguments: index);
                               model.setControllers(index);
                             },
                             icon: const Icon(Icons.edit_outlined),
