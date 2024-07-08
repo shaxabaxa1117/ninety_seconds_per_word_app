@@ -6,6 +6,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:ninenty_second_per_word_app/backend/database/firebase_streem.dart';
 import 'package:ninenty_second_per_word_app/backend/provider/change_provider.dart';
 import 'package:ninenty_second_per_word_app/database/note_data.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/adding_card_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/edit_note_page.dart';
 import 'package:ninenty_second_per_word_app/pages/accaunt_page.dart';
 import 'package:ninenty_second_per_word_app/pages/home_page.dart';
@@ -57,6 +58,7 @@ class MyApp extends StatelessWidget {
             '/verify_email': (context) => const VerifyEmailScreen(),
             '/account_page': (context) => const AccountScreen(),
             '/edit_page': (context) => const EditNotePage(),
+            
           },
           initialRoute: '/',
         ));

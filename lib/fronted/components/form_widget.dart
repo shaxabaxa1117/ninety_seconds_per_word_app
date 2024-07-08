@@ -15,8 +15,8 @@ class FormWidget extends StatelessWidget {
   final Function func;
   @override
   Widget build(BuildContext context) {
-    final wordController = context.read<NotesProvider>().wordController;
-    final sentenceController = context.read<NotesProvider>().sentenceController;
+    final wordController = context.watch<NotesProvider>().wordController;
+    final sentenceController = context.watch<NotesProvider>().sentenceController;
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 15, vertical: 20),
       child: ListView(

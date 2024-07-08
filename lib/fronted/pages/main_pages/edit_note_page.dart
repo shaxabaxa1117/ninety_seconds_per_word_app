@@ -19,7 +19,10 @@ class EditNotePage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 34, 34, 34),
       body: FormWidget(
-          buttonName: 'Edit the ', func: () => model.onChange(context, index)),
+        buttonName: 'Edit the ',
+        
+        func: () => model.onChange(context, index),
+      ),
     );
   }
 }

@@ -22,7 +22,6 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
   var _currentIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
-    AddingCardPage(),
     WordListPage(),
     FavouriteWordsPage(),
   ];
@@ -35,16 +34,13 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
         floatingActionButton: FloatingActionButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
           onPressed: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => AIChatScreen()),
-            );
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AddingCardPage(),));
           },
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.forum),
-              Text('AI chat',style: TextStyle(fontSize: 8),)
+              Icon(Icons.add),
+              
             ],
           ),
         ),
@@ -65,13 +61,6 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
             SalomonBottomBarItem(
               icon: Icon(Icons.home),
               title: Text("Home"),
-              selectedColor: const Color.fromARGB(112, 255, 255, 255),
-            ),
-      
-            /// Search
-            SalomonBottomBarItem(
-              icon: Icon(Icons.add),
-              title: Text("Add card"),
               selectedColor: const Color.fromARGB(112, 255, 255, 255),
             ),
       

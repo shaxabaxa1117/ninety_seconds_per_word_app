@@ -17,7 +17,15 @@ class AddingCardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final model = context.watch<NotesProvider>();
-    return FormWidget(buttonName: 'Create a new ', func: () => model.addNote(context));
+    return Scaffold(
+      backgroundColor: Color.fromARGB(255, 34, 34, 34),
+      body: FormWidget(
+        buttonName: 'Create a new ',
+      
+        func: () => model.addNote(context),
+        
+      ),
+    );
   }
 }
 

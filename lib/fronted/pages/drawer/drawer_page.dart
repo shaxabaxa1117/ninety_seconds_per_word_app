@@ -6,7 +6,6 @@ import 'package:flutter/widgets.dart';
 import 'package:ninenty_second_per_word_app/provider/drawer_provider.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/drawer/drawer_%20link.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/drawer/status_info.dart';
-import 'package:ninenty_second_per_word_app/fronted/pages/test_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
 import 'package:ninenty_second_per_word_app/pages/reset_password_page.dart';
 import 'package:provider/provider.dart';

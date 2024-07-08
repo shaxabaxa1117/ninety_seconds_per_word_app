@@ -19,10 +19,11 @@ class WordListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var model = context.watch<NotesProvider>();
     //var allNotes = HiveBox.notes.values.toList();//! other option for giving data for each widget
-    var allNotes = HiveBox.notes;
+
     return ValueListenableBuilder(
       valueListenable: HiveBox.notes.listenable(),
       builder: (context, Box<NoteData> notes, _) {
+        var allNotes = notes.values.toList();
         return ListView.separated(
           padding: const EdgeInsets.symmetric(horizontal: 7, vertical: 22),
           itemBuilder: (context, index) {
@@ -37,19 +38,20 @@ class WordListPage extends StatelessWidget {
                     )),
                 child: Container(
                   decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color:  Color.fromARGB(232, 145, 141, 140),),
+                    borderRadius: BorderRadius.circular(10),
+                    color: Color.fromARGB(232, 145, 141, 140),
+                  ),
                   child: ListTile(
                     //! элементы
                     title: Text(
-                      allNotes.getAt(index)!.word.toString(),
+                      allNotes[index].word.toString(),
                       style: AppStyle.fontStyle.copyWith(
                           fontSize: 16,
                           fontWeight: FontWeight.w600,
                           color: Color.fromARGB(255, 59, 62, 62)),
                     ),
                     subtitle: Text(
-                      allNotes.getAt(index)!.sentence.toString(),
+                      allNotes[index].sentence.toString(),
                       style: AppStyle.fontStyle.copyWith(
                           fontSize: 14, color: Color.fromARGB(255, 59, 62, 62)),
                     ),
@@ -59,19 +61,15 @@ class WordListPage extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {
+                              Navigator.pushNamed(context, '/edit_page',
+                                    arguments: index);
                               model.setControllers(index);
-                              Navigator.pushNamed(context,'/edit_page', arguments: index );
-                              
                             },
-                            icon: const Icon(
-                              Icons.edit_outlined,
-                              
-                            ),
+                            icon: const Icon(Icons.edit_outlined),
                           ),
                           IconButton(
                             onPressed: () {
                               model.deleteNote(index);
-                              
                             },
                             icon: const Icon(
                               Icons.delete_outline,
