@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class SentenceTextField extends StatelessWidget {
   SentenceTextField({super.key, required this.sentenceController});
-  TextEditingController sentenceController = TextEditingController();
+  final TextEditingController sentenceController;
   
 
   @override

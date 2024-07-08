@@ -56,6 +56,7 @@ class MyApp extends StatelessWidget {
             '/reset_password': (context) => const ResetPasswordScreen(),
             '/verify_email': (context) => const VerifyEmailScreen(),
             '/account_page': (context) => const AccountScreen(),
+            '/edit_page': (context) => const EditNotePage(),
           },
           initialRoute: '/',
         ));

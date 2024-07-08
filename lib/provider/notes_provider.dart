@@ -22,7 +22,7 @@ class NotesProvider extends ChangeNotifier{
   // add notes
 
 //! View
-  Future<void> addNote() async{
+  Future<void> addNote(BuildContext context) async{
 
     await HiveBox.notes.add(
       NoteData(
@@ -75,8 +75,8 @@ class NotesProvider extends ChangeNotifier{
 // установка поле ввода значние при редактиировании 
 
   Future<void> setControllers(int index) async{
-  wordController.text = HiveBox.notes.getAt(index)!.word ?? '';
-  sentenceController.text = HiveBox.notes.getAt(index)!.sentence ?? '';
+  wordController.text = HiveBox.notes.getAt(index)?.word ?? '';
+  sentenceController.text = HiveBox.notes.getAt(index)?.sentence ?? '';
   }
 
 }

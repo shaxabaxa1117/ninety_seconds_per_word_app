@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class WordTextField extends StatelessWidget {
   
   WordTextField({super.key,required this.wordController});
-  TextEditingController wordController = TextEditingController();
+  final TextEditingController wordController;
   
   @override
   Widget build(BuildContext context) {

@@ -59,7 +59,9 @@ class WordListPage extends StatelessWidget {
                         children: [
                           IconButton(
                             onPressed: () {
-                              Navigator.push(context, MaterialPageRoute( builder: (context) => EditNotePage(index: index,), ), );
+                              model.setControllers(index);
+                              Navigator.pushNamed(context,'/edit_page', arguments: index );
+                              
                             },
                             icon: const Icon(
                               Icons.edit_outlined,
@@ -69,7 +71,7 @@ class WordListPage extends StatelessWidget {
                           IconButton(
                             onPressed: () {
                               model.deleteNote(index);
-                              print('ffd');
+                              
                             },
                             icon: const Icon(
                               Icons.delete_outline,
