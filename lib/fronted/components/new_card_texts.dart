@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CardText extends StatelessWidget {
-  CardText({super.key, required this.word});
+  CardText({super.key, required this.word, this.forChanges = true});
   String? word;
+  bool forChanges;
 
   @override
   Widget build(BuildContext context) {
@@ -31,8 +32,8 @@ class CardText extends StatelessWidget {
                   begin: Alignment.topLeft,
                   end: Alignment.bottomRight,
                 ).createShader(bounds),
-                child: const Text(
-                  'card',
+                child:  Text(
+                  forChanges == true ? 'card' : 'cards',
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     color: Colors.white,

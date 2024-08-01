@@ -19,4 +19,8 @@ class DrawerModel extends ChangeNotifier {
     Icons.rate_review,
     Icons.monetization_on_outlined
   ];
+
+    
+
+
 }

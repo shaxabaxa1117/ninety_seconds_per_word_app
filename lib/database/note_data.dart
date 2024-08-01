@@ -14,7 +14,11 @@ String? sentence;
   @HiveField(2)
 bool isFavourite;
 
+  @HiveField(3)
+String? deckName;
 
-NoteData({this.word,this.sentence, this.isFavourite = false});
+
+
+NoteData({this.word,this.sentence, this.isFavourite = false, this.deckName});
 
 }

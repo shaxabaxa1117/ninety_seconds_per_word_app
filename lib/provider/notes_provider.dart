@@ -7,7 +7,7 @@ class NotesProvider extends ChangeNotifier {
 
   final wordController = TextEditingController();
   final sentenceController = TextEditingController();
-
+  int editingIndex = 0;
   // add notes
 
 //! View
@@ -16,7 +16,7 @@ class NotesProvider extends ChangeNotifier {
         .add(NoteData(
           word: wordController.text.isNotEmpty ? wordController.text: 'No word is mentioned',
           sentence: sentenceController.text.isNotEmpty? sentenceController.text: 'No sentence is given',))
-        .then((value) => Navigator.pop(context)).then((value) => controllersClear());
+        .then((value) => controllersClear());
         print('работает addNote');
   }
 
@@ -28,7 +28,7 @@ class NotesProvider extends ChangeNotifier {
 
 //* Deleting
 
-  Future<void> deleteNote(int index) async {
+  void deleteNote(int index) async {
     await HiveBox.notes.deleteAt(index);
   }
 
@@ -44,7 +44,7 @@ class NotesProvider extends ChangeNotifier {
 
   //редактирование
 
-  Future<void> onChange(BuildContext context, int index) async {
+  void onChange(BuildContext context, int index) async {
     await HiveBox.notes.putAt(index ,NoteData(word: wordController.text,sentence: sentenceController.text))
         .then(
           (value) => Navigator.pop(context),
@@ -54,9 +54,10 @@ class NotesProvider extends ChangeNotifier {
 
 // установка поле ввода значние при редактиировании
 
-  Future<void> setControllers(int index) async {
-    wordController.text = HiveBox.notes.getAt(index)?.word ?? '';
-    sentenceController.text = HiveBox.notes.getAt(index)?.sentence ?? '';
-    print('работает  setControllers');
+  void setControllers(int index) {
+    final note = HiveBox.notes.getAt(index) as NoteData;
+    wordController.text = note.word ?? '';
+    sentenceController.text = note.sentence ?? '';
+    editingIndex = index;
   }
 }

@@ -3,17 +3,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
-import 'package:ninenty_second_per_word_app/backend/database/firebase_streem.dart';
-import 'package:ninenty_second_per_word_app/backend/provider/change_provider.dart';
+import 'package:ninenty_second_per_word_app/database/deck_data.dart';
 import 'package:ninenty_second_per_word_app/database/note_data.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/adding_card_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/edit_note_page.dart';
-import 'package:ninenty_second_per_word_app/pages/accaunt_page.dart';
-import 'package:ninenty_second_per_word_app/pages/home_page.dart';
-import 'package:ninenty_second_per_word_app/pages/login_page.dart';
-import 'package:ninenty_second_per_word_app/pages/reset_password_page.dart';
-import 'package:ninenty_second_per_word_app/pages/sign_up_page.dart';
-import 'package:ninenty_second_per_word_app/pages/verify_mail_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/home_page_acces_users.dart';
+import 'package:ninenty_second_per_word_app/provider/deck_provider.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -27,7 +22,9 @@ Future<void> main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(NoteDataAdapter());
   await Hive.openBox<NoteData>('notes');
-
+  await Hive.openBox<int>('picIndex');
+  Hive.registerAdapter(DeckDataAdapter());
+  await Hive.openBox<DeckData>('decks');
   runApp(const MyApp());
 }
 
@@ -40,27 +37,39 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
+      create: (context) => DeckProvider(),
+      child: MainWidget());
+  }
+}
+
+class MainWidget extends StatelessWidget {
+  const MainWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ChangeNotifierProvider(
         create: (context) => NotesProvider(),
-        child: MaterialApp(
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            pageTransitionsTheme: const PageTransitionsTheme(builders: {
-              TargetPlatform.android: CupertinoPageTransitionsBuilder(),
-            }),
+        child:  ChangeNotifierProvider(
+      create: (context) => NotesProvider(),
+          child: MaterialApp(
+            home: MainPage(),
+            debugShowCheckedModeBanner: false,
+            theme: ThemeData(
+              pageTransitionsTheme: const PageTransitionsTheme(builders: {
+                TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+                
+              }),
+            ),
+            routes: {
+              '/' : (context) =>  MainPage(),
+              '/edit_page': (context) =>  const EditNotePage(),
+              '/add_card_page': (context) =>  const AddingCardPage(),
+              // 
+            },
+            initialRoute: '/',
           ),
-          routes: {
-            '/': (context) => const FirebaseStream(),
-            '/home': (context) => const HomeScreen(),
-            '/account': (context) => const AccountScreen(),
-            '/login': (context) => const LoginScreen(),
-            '/signup': (context) => const SignUpScreen(),
-            '/reset_password': (context) => const ResetPasswordScreen(),
-            '/verify_email': (context) => const VerifyEmailScreen(),
-            '/account_page': (context) => const AccountScreen(),
-            '/edit_page': (context) => const EditNotePage(),
-            
-          },
-          initialRoute: '/',
         ));
   }
 }

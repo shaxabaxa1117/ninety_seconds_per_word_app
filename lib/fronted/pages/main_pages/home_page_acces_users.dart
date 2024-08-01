@@ -6,41 +6,43 @@ import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/adding_card
 import 'package:ninenty_second_per_word_app/fronted/pages/drawer/drawer_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/favourite_words_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/home_page.dart';
-import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/word_list_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/deck_list_page.dart';
+import 'package:ninenty_second_per_word_app/provider/deck_provider.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
 import 'package:provider/provider.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-class HomePageAccesUsers extends StatefulWidget {
-  
-
+class MainPage extends StatefulWidget {
   @override
-  _HomePageAccesUsersState createState() => _HomePageAccesUsersState();
+  _MainPageState createState() => _MainPageState();
 }
 
-class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
+class _MainPageState extends State<MainPage> {
   var _currentIndex = 0;
   final List<Widget> _pages = [
     HomePage(),
-    WordListPage(),
+    DeckListPage(),
     FavouriteWordsPage(),
   ];
+
   @override
   Widget build(BuildContext context) {
+    final model = context.watch<NotesProvider>();
     return ChangeNotifierProvider(
-      create: (context) => NotesProvider(),
+      create: (context) => DeckProvider(),
       child: Scaffold(
         backgroundColor: Color.fromARGB(255, 34, 34, 34),
         floatingActionButton: FloatingActionButton(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => AddingCardPage(),));
+            model.controllersClear();
+      
+            Navigator.pushNamed(context, '/add_card_page');
           },
-          child: Column(
+          child: const Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Icon(Icons.add),
-              
             ],
           ),
         ),
@@ -57,7 +59,7 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
           currentIndex: _currentIndex,
           onTap: (i) => setState(() => _currentIndex = i),
           items: [
-            /// Home
+            
             SalomonBottomBarItem(
               icon: Icon(Icons.home),
               title: Text("Home"),
@@ -67,7 +69,7 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
             /// Profile
             SalomonBottomBarItem(
               icon: Icon(Icons.list_alt),
-              title: Text("List of words"),
+              title: Text("List of decks"),
               selectedColor: const Color.fromARGB(112, 255, 255, 255),
             ),
       
@@ -80,6 +82,7 @@ class _HomePageAccesUsersState extends State<HomePageAccesUsers> {
           ],
         ),
         body: _pages[_currentIndex],
+        
       ),
     );
   }

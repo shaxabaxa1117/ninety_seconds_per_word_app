@@ -6,25 +6,31 @@ import 'package:ninenty_second_per_word_app/fronted/components/form_widget.dart'
 import 'package:ninenty_second_per_word_app/fronted/components/word_text_field.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/new_card_texts.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/sentence_text_field.dart';
+import 'package:ninenty_second_per_word_app/provider/deck_provider.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
 import 'package:provider/provider.dart';
 
 class AddingCardPage extends StatelessWidget {
-  AddingCardPage({
+  const AddingCardPage({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    final model = context.watch<NotesProvider>();
+    final modelNote = context.watch<NotesProvider>();
+    final modelDeck = context.watch<DeckProvider>();
+    var allNotes = HiveBox.notes.values.toList();
+    
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 34, 34, 34),
       body: FormWidget(
-        buttonName: 'Create a new ',
-      
-        func: () => model.addNote(context),
-        
-      ),
+          buttonName: 'Create a new ',
+          hasChoosing: true,
+          func: () {
+            
+            modelNote.addNote(context);
+            modelDeck.addNoteToDeck(context,);
+          }),
     );
   }
 }
