@@ -19,7 +19,9 @@ int? deckIndex;
   @HiveField(3)
   bool isFull;
 
+  
+
 DeckData({this.name, this.notes, this.isFull = false});
 
-  get length => null;
+  
 }

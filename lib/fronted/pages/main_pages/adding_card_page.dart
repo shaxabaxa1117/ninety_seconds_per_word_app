@@ -24,6 +24,7 @@ class AddingCardPage extends StatelessWidget {
           buttonName: 'Create a new ',
           isAddingCard: true,
           func: () {
+            
             modelNote.addNote(context);
             modelDeck.addNoteToDeck(context);
 
