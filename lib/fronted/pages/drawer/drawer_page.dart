@@ -16,7 +16,7 @@ class DrawerPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-      create: (context) => DrawerModel(),
+      create: (context) => DrawerProvider(),
       child: DrawerWidget(),
     );
   }
@@ -30,7 +30,7 @@ class DrawerWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final modelDrawer = context.watch<DrawerModel>();
+    final modelDrawer = context.watch<DrawerProvider>();
 
     return Drawer(
       backgroundColor: AppColors.backgroundColor,

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:ninenty_second_per_word_app/database/deck_data.dart';
 import 'package:ninenty_second_per_word_app/database/hive_box.dart';
-import 'package:ninenty_second_per_word_app/database/note_data.dart';
-import 'package:ninenty_second_per_word_app/fronted/components/flip_card_page.dart';
+
+
 import 'package:ninenty_second_per_word_app/fronted/components/word_list.dart';
-import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/edit_note_page.dart';
-import 'package:ninenty_second_per_word_app/fronted/style/app_colors.dart';
+
 import 'package:ninenty_second_per_word_app/fronted/style/app_style.dart';
+
 import 'package:ninenty_second_per_word_app/provider/deck_provider.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
 
@@ -21,8 +21,9 @@ class DeckListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var model = context.watch<DeckProvider>();
 
+    var modelDeck = context.watch<DeckProvider>();
+    var modelNote = context.watch<NotesProvider>();
     return Column(
       children: [
         ValueListenableBuilder(
@@ -36,6 +37,8 @@ class DeckListPage extends StatelessWidget {
                   itemBuilder: (context, index) {
                     return GestureDetector(
                       onTap: () {
+                        modelNote.getNoteToDeckIndex(index: index);
+                        
                         Navigator.push(
                             context,
                             MaterialPageRoute(
@@ -68,6 +71,35 @@ class DeckListPage extends StatelessWidget {
                                   child: Row(
                                     mainAxisSize: MainAxisSize.min,
                                     children: [
+                                      IconButton(onPressed: (){
+                                            showDialog(
+                                            context: context,
+                                            builder: (BuildContext context) {
+                                              return AlertDialog(
+                                                
+                                                content: Text('Do you want to process this deck?'),
+                                                actions: [
+                                                  
+                                                  TextButton(
+                                                    child: const Text('No'),
+                                                    onPressed: () {
+                                                      Navigator.pop(context);
+                                                    },
+                                                  ),
+                                                  TextButton(
+                                                    child: const Text('Yes'),
+                                                    onPressed: () {
+                                                                                       //! important
+                                                    },
+                                                  ),
+                                                ],
+                                              );
+                                            },
+                                          );
+
+
+
+                                      }, icon: Icon(Icons.restart_alt)),
                                       IconButton(
                                         onPressed: () {
                                           showDialog(
@@ -78,12 +110,13 @@ class DeckListPage extends StatelessWidget {
                                                     'Changing the name of deck'),
                                                 content: TextField(
                                                   controller:
-                                                      model.deckNameController,
+                                                      modelDeck.deckNameController,
                                                   decoration: InputDecoration(
                                                       hintText:
                                                           "Enter your input here"),
                                                 ),
                                                 actions: [
+                                                  
                                                   TextButton(
                                                     child: const Text('Cancel'),
                                                     onPressed: () {
@@ -93,7 +126,7 @@ class DeckListPage extends StatelessWidget {
                                                   TextButton(
                                                     child: const Text('Change'),
                                                     onPressed: () {
-                                                      model.onChange(
+                                                      modelDeck.onChange(
                                                           context, index);
                                                     },
                                                   ),
@@ -106,7 +139,7 @@ class DeckListPage extends StatelessWidget {
                                       ),
                                       IconButton(
                                         onPressed: () {
-                                          model.deleteNote(index);
+                                          modelDeck.deleteDeck(index);
                                         },
                                         icon: const Icon(
                                           Icons.delete_outline,
@@ -148,7 +181,7 @@ class DeckListPage extends StatelessWidget {
                   return AlertDialog(
                     title: const Text('Input Dialog'),
                     content: TextField(
-                      controller: model.deckNameController,
+                      controller: modelDeck.deckNameController,
                       decoration: InputDecoration(
                           hintText: "Enter the name of new deck"),
                     ),
@@ -162,7 +195,7 @@ class DeckListPage extends StatelessWidget {
                       TextButton(
                         child: const Text('Add deck'),
                         onPressed: () {
-                          model.addDeck(context);
+                          modelDeck.addDeck(context);
                         },
                       ),
                     ],

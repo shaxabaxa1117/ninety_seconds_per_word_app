@@ -7,6 +7,7 @@ import 'package:ninenty_second_per_word_app/database/deck_data.dart';
 import 'package:ninenty_second_per_word_app/database/note_data.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/adding_card_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/edit_note_page.dart';
+import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/home_page.dart';
 import 'package:ninenty_second_per_word_app/fronted/pages/main_pages/home_page_acces_users.dart';
 import 'package:ninenty_second_per_word_app/provider/deck_provider.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
@@ -17,14 +18,14 @@ Future<void> main() async {
   
 
 
-  WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  
   await Hive.initFlutter();
   Hive.registerAdapter(NoteDataAdapter());
   await Hive.openBox<NoteData>('notes');
   await Hive.openBox<int>('picIndex');
   Hive.registerAdapter(DeckDataAdapter());
   await Hive.openBox<DeckData>('decks');
+  await Hive.openBox('processNotes');
   runApp(const MyApp());
 }
 
@@ -63,12 +64,11 @@ class MainWidget extends StatelessWidget {
               }),
             ),
             routes: {
-              '/' : (context) =>  MainPage(),
               '/edit_page': (context) =>  const EditNotePage(),
               '/add_card_page': (context) =>  const AddingCardPage(),
-              // 
+              '/home_page' : (context) =>  MainPage(),
+              
             },
-            initialRoute: '/',
           ),
         ));
   }

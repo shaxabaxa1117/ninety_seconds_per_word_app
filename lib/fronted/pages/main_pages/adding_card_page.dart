@@ -3,9 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:ninenty_second_per_word_app/database/hive_box.dart';
 import 'package:ninenty_second_per_word_app/fronted/components/form_widget.dart';
-import 'package:ninenty_second_per_word_app/fronted/components/word_text_field.dart';
-import 'package:ninenty_second_per_word_app/fronted/components/new_card_texts.dart';
-import 'package:ninenty_second_per_word_app/fronted/components/sentence_text_field.dart';
 import 'package:ninenty_second_per_word_app/provider/deck_provider.dart';
 import 'package:ninenty_second_per_word_app/provider/notes_provider.dart';
 import 'package:provider/provider.dart';
@@ -25,11 +22,12 @@ class AddingCardPage extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 34, 34, 34),
       body: FormWidget(
           buttonName: 'Create a new ',
-          hasChoosing: true,
+          isAddingCard: true,
           func: () {
-            
             modelNote.addNote(context);
-            modelDeck.addNoteToDeck(context,);
+            modelDeck.addNoteToDeck(context);
+
+
           }),
     );
   }

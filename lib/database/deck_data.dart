@@ -13,6 +13,13 @@ String? name;
   @HiveField(1)
 List<NoteData>? notes;
 
+  @HiveField(2)
+int? deckIndex;
 
-DeckData({this.name, this.notes});
+  @HiveField(3)
+  bool isFull;
+
+DeckData({this.name, this.notes, this.isFull = false});
+
+  get length => null;
 }

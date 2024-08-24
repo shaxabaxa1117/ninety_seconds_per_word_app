@@ -5,11 +5,13 @@ import 'package:ninenty_second_per_word_app/database/note_data.dart';
 
 class DeckProvider extends ChangeNotifier {
   final deckNameController = TextEditingController();
-  int deckIndex = 0;
+  int? deckIndex;
+  
+
 
   Future<void> addDeck(BuildContext context) async {
     await HiveBox.decks.add(
-      DeckData(name: deckNameController.text.isNotEmpty ? deckNameController.text : 'No name')
+      DeckData(name: deckNameController.text.isNotEmpty ? deckNameController.text : 'No name', notes: [],isFull: false)
     ).then((value) => Navigator.pop(context)).then((value) => controllersClear());
   }
 
@@ -17,7 +19,7 @@ class DeckProvider extends ChangeNotifier {
     deckNameController.clear();
   }
 
-  void deleteNote(int index) async {
+  void deleteDeck(int index) async {
     await HiveBox.decks.deleteAt(index);
   }
 
@@ -34,26 +36,26 @@ class DeckProvider extends ChangeNotifier {
   Future<void> addNoteToDeck(BuildContext context,) async {
     final notesNew = HiveBox.notes.values.toList();
     if (notesNew.isNotEmpty) {
-
       var box = HiveBox.decks;
-      var deck = box.getAt(deckIndex);
-      
-      if (deck != null) {
-        deck.notes?.add(notesNew.last);
+      var deck = box.getAt(deckIndex!);
+      deck?.notes?.add(notesNew.last);
         
-        
-        await box.putAt(deckIndex, deck).then((value) => Navigator.pop(context));
+        if(deck != null && deck.notes!.length < 4){
+        await box.putAt(deck.deckIndex ?? 0, deck);
+        }else{
+          deck?.isFull = true;
+          print('Уже полон');
+        }
+        print('AddNoteToDeck');
         
         notifyListeners();
-      } else {
-        print('Колода с таким индексом не найдена.');
-      }
-    } else {
-      print('Список заметок пуст.');
-    }
+      
+  }
   }
 
-  void saveIndex(int index) {
+  
+
+  getIndex({required int index}){
     deckIndex = index;
   }
 }

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class CardText extends StatelessWidget {
-  CardText({super.key, required this.word, this.forChanges = true});
+  CardText({super.key, required this.word, this.isNotPlurar = true});
   String? word;
-  bool forChanges;
+  bool isNotPlurar;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class CardText extends StatelessWidget {
                   end: Alignment.bottomRight,
                 ).createShader(bounds),
                 child:  Text(
-                  forChanges == true ? 'card' : 'cards',
+                  isNotPlurar == true ? 'card' : 'cards',
                   style: TextStyle(
                     fontFamily: 'Poppins',
                     color: Colors.white,
